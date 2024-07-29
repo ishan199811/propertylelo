@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="admin/fragments/adminNav.html">
+	
+</head>
+<body>
+	
+	<div class="mobile-menu-overlay"></div>
+<div class="main-container">
+
+
+
+<!-- this is form -->
+<form  th:action="@{/saveproperty}"  th:object="${property}"   method="POST">
+	<div class="form-group">
+		<label>Property Name</label>
+		<input  th:field="*{propertyName}" class="form-control" type="text" placeholder="Property Name">
+	</div>
+	<div class="form-group">
+		<label>Property Address</label>
+		<input  th:field="*{propertyAddress}" class="form-control" type="text" placeholder="Property Address">
+	</div>
+	<div class="form-group">
+		<label>Property Description</label>
+		<input  th:field="*{propertyDescription}" class="form-control" type="text" placeholder="Property Description">
+	</div>
+	<div class="form-group">
+		<label>Phone Number</label>
+		<input  th:field="*{phoneNo}" class="form-control" type="text" placeholder="Phone Number">
+	</div>
+	<div class="form-group">
+		<label>Landline Number</label>
+		<input  th:field="*{landlineNo}" class="form-control" type="text" placeholder="Landline Number">
+	</div>
+	<div class="form-group">
+		<label>area</label>
+		<input  th:field="*{area}" class="form-control" type="text" placeholder="500 sq/ft">
+	</div>
+	
+		<div class="form-group">
+				  <label >Select Type:</label>
+                                        <select   th:field="*{catagoryId}" class="form-control">
+                                       <option th:each="catagory: ${catagory}" th:value=" ${catagory.catagoryId}" th:text=" ${catagory.name}"></option>
+                                        </select>
+                </div>
+	<div class="form-group">
+		<div class="row">
+			<div class="col-md-6 col-sm-12">
+				<label class="weight-600">Custom Checkbox</label>
+				<div class="custom-control custom-checkbox mb-5">
+					<input type="checkbox" class="custom-control-input" id="customCheck4-1">
+					<label class="custom-control-label" for="customCheck4-1">Check this custom checkbox</label>
+				</div>
+			</div>
+			<div class="col-md-6 col-sm-12">
+				<label class="weight-600">Custom Radio</label>
+				<div class="custom-control custom-radio mb-5">
+					<input type="radio" id="customRadio4" name="customRadio" class="custom-control-input">
+					<label class="custom-control-label" for="customRadio4">Toggle this custom radio</label>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="form-group">
+		<label>Textarea</label>
+		<textarea class="form-control"></textarea>
+	</div>
+	<div class="form-group">
+		<label>Example file input</label>
+		<input type="file" class="form-control-file form-control height-auto">
+	</div>
+		<div class="form-group">
+		<input type="Submit" class="form-control" placeholder="Disabled input">
+	</div>
+</form>
+
+
+
+
+
+<!-- this is table -->
+		<div align="center">
+    
+    <table border="10" cellpadding="10">
+        <thead>
+            <tr>
+       <th>Id</th>
+									
+										<th>Name</th>
+									
+									<th>Address</th>
+								      
+								      <th>Detail</th>
+										
+									<th>area</th>
+									<th>Phone Number</th>
+																			
+										
+									<th>Edit</th>	
+												
+									<th>Delete</th>
+								
+								
+	<tbody>
+		<tr th:each="propertydetail: ${property1}">
+		<td th:text="${property1.id}"></td>
+										<td th:text="${property1.propertyName}"></td>
+							<td th:text="${property1.propertyAddress}"></td>
+							<td th:text="${property1.propertyName}"></td>
+							<td th:text="${property1.propertyName}"></td>
+										<!-- <td><a th:href="@{/edittt/{topicId}(topicId=${topic1.topicId})}" class="button">Edit</a></td>
+										
+										<td><a th:href="@{/delet/{id}(id=${topic1.topicId})}" class="button">Delete</a></td>
+										
+										 -->
+										
+												
+
+									
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+
+		<div class="footer-wrap pd-20 mb-20 card-box">
+				DeskApp - Bootstrap 4 Admin Template By <a href="https://github.com/dropways" target="_blank">Ankit Hingarajiya</a>
+			</div>
+		
+	<!-- js -->
+	<script src="/admin/vendors/scripts/core.js"></script>
+	<script src="/admin/vendors/scripts/script.min.js"></script>
+	<script src="/admin/vendors/scripts/process.js"></script>
+	<script src="/admin/vendors/scripts/layout-settings.js"></script>
+	<script src="/admin/plugins/apexcharts/apexcharts.min.js"></script>
+	<script src="/admin/plugins/datatables/js/jquery.dataTables.min.js"></script>
+	<script src="/admin//plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
+	<script src="/admin/plugins/datatables/js/dataTables.responsive.min.js"></script>
+	<script src="/admin/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
+	<script src="/admin/vendors/scripts/dashboard.js"></script>
+</body>
+</html>
